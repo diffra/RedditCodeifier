@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>Reddit code-ifier</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function testResults (form) {
+    var TestVar = form.inputbox.value.trim();
+    // alert ("You typed: " + TestVar);
+    var lines = TestVar.split('\n');
+    var out = "<center><h3>Formatted for reddit: </h3></center><blockquote>";
+       for(var i = 0;i < lines.length;i++){
+        //code here using lines[i] which will give you each line
+        var out = out + "&nbsp;&nbsp;&nbsp;&nbsp;" + lines[i] + "<br /> \n";
+       }
+
+    document.getElementById("res").innerHTML=out + "</blockquote><center>Copy and paste this data into your reddit submission.</center>";
+}
+</SCRIPT>
+<style>
+blockquote {
+  background: #eee;
+  border-left: 10px solid #aaa;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-family: monospace;
+  color: #000;
+}
+body{
+   background-color: #4D7774;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 400;
+   color: #EEE;
+}
+</style>
+</HEAD>
+<BODY>
+<div style="width: 100%; overflow: hidden;">
+<div style="width: 50%; float: left;">
+<FORM NAME="myform" ACTION="" METHOD="GET"><center><h3>Enter data in the box:</h3>
+<textarea rows=32 cols=64 NAME="inputbox"></textarea><P>
+<INPUT TYPE="button" NAME="button" Value="Reddit code-ify" onClick="testResults(this.form)">
+</center>
+</FORM>
+
+</div>
+<div style="margin-left: 55%; margin-top: 20px;" id="res">
+</div>
+</div>
+
+</BODY>
+</HTML>
